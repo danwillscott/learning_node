@@ -1,7 +1,7 @@
 /**
  * Created by danielscott on 3/5/17.
  */
-
+importScripts(jQuery);
 
 function Game()  {
     this.players = [];
@@ -25,11 +25,13 @@ function PlayerConstructor(name){
 
 function PokemonCard(data){
     
-    this.get_card = function () {
+    this.get_card = data;
 
-    }
 }
 
+
+var card1;
+var card2;
 
 $(document).ready(function(){
 
@@ -38,7 +40,8 @@ $(document).ready(function(){
         var id = $(this).attr('id');
 
         $.get("http://pokeapi.co/api/v1/pokemon/"+id+"/", function(res){
-            // console.log(res);
+            card1 = res.types[0];
+            card2 = res.types[1];
             $( document ).ajaxComplete(function( event,request, settings ) {
                 if(res===undefined){
                     alert("page failed to load!");
@@ -48,6 +51,7 @@ $(document).ready(function(){
                     for(var i = 0; i < res.types.length; i += 1){
                         $("ul").append("<li>"+res.types[i].name+"</li>");
                     }
+
                     $("h1").text(res.name);
                     $("#height").text(res.height);
                     $("#weight").text(res.weight);

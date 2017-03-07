@@ -5,7 +5,7 @@
 function VehicleConstructor(name, wheels, passengers, speed) {
     //Private Vars
     var distance_travelled = 0;
-
+    var vin = Math.floor((Math.random() * 100000000000) + 1)
     //Public Vars
     this.name = name;
     this.wheels = wheels;
@@ -35,7 +35,11 @@ function VehicleConstructor(name, wheels, passengers, speed) {
 
     this.check_miles = function () {
         console.log(distance_travelled)
-    }
+    };
+
+    this.check_vin = function () {
+        console.log(vin)
+    };
 
 }
 
@@ -55,6 +59,7 @@ car.make_noise();
 car.passenger_count();
 car.move();
 car.check_miles();
+car.check_vin();
 console.log('***** end car *****');
 // Bus instance of vehicle
 bus = new VehicleConstructor('Bus', 6, 1, 80);
@@ -78,6 +83,7 @@ bus.move();
 bus.move();
 bus.move();
 bus.check_miles();
+bus.check_vin();
 console.log('***** end bus *****');
 
 
