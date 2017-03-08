@@ -14,7 +14,7 @@ function VehicleConstructor(name, wheels, passengers, speed) {
 
 }
 
-VehicleConstructor.prototype.wheel_count = function () {
+    VehicleConstructor.prototype.wheel_count = function () {
     console.log(this.wheels);
 };
 
